@@ -38,12 +38,18 @@ class Certifier:
         self.args = self.parse_args()
         self.model = self.init_model()
         self.init_dataset()
-        #self.experiment_h_distribution(self.model)
-        #self.exp_fluctuations(self.model)
-        #self.experiment_table(self.model)
-        #self.sigma_inference(self.model)
-        self.exp_images(self.model)
-        #self.experiment_find_best_threshold(self.model)
+        if self.args.exp == 'table':
+            self.experiment_table(self.model)
+        elif self.args.exp == 'distribution':
+            self.experiment_h_distribution(self.model)
+        elif self.args.exp == 'fluctuations':
+            self.exp_fluctuations(self.model)
+        elif self.args.exp == 'find_best_threshold':
+            self.experiment_find_best_threshold(self.model)
+        elif self.args.exp == 'images':
+            self.exp_images(self.model)
+        else:
+            self.sigma_inference(self.model)
         
     def parse_args(self):
         parser = argparse.ArgumentParser(description='Train segmentation network')
@@ -56,6 +62,11 @@ class Certifier:
 
                             help='experiment configure file name',
                             type=str)
+        parser.add_argument('--exp',
+                            default='inference',
+                            help='experiment name',
+                            type=str,
+                            choices=['inference', 'table', 'distribution', 'images', 'fluctuations', 'best_thresh'])
         parser.add_argument('opts',
                             help="Modify config options using the command-line",
                             default=None,
@@ -63,6 +74,7 @@ class Certifier:
 
         args = parser.parse_args()
         update_config(config, args)
+        self.args = args
         self.config = config
         return args
 
@@ -233,7 +245,7 @@ class Certifier:
             samples_flattened_adaptive[:, idx] = LUT[samples_flattened[:, idx]]
         return samples_flattened_adaptive, np.array(h_map)
 
-    def info_gain_adaptive(self, classes_certify, gt_adaptive_label, label, stats=False, boundary=True, h_map=None, images=False):
+    def info_gain_adaptive(self, classes_certify, gt_adaptive_label, label, stats=False, boundary=False, h_map=None, images=False):
         confusion_matrix = get_confusion_matrix(
             gt_adaptive_label.reshape(label.size()),
             classes_certify.reshape(label.size()),
@@ -248,7 +260,7 @@ class Certifier:
         mean_acc = (tp/np.maximum(1.0, pos)).mean()
         IoU_array = (tp / np.maximum(1.0, pos + res - tp))
         mean_IoU = IoU_array.mean()
-        print('pixel_acc', pixel_acc, 'mean_acc', mean_acc, 'mean_IoU', mean_IoU)
+        #print('pixel_acc', pixel_acc, 'mean_acc', mean_acc, 'mean_IoU', mean_IoU)
         if boundary:
             boundary_map = find_boundaries_torch(label[0], 10)
             boundary_map = boundary_map.cpu().numpy().flatten()
@@ -766,6 +778,7 @@ class Certifier:
                     samples_logits = None
                 pickle.dump(stats, open(log_path, 'wb'))
                 print('Dumped', log_path)
+                
     def sigma_inference(self, model):
         model.eval()
         with torch.no_grad():
@@ -793,7 +806,7 @@ class Certifier:
                 tp = np.diag(confusion_matrix)
                 pixel_acc = tp.sum()/pos.sum()
     
-                print('Baseline accuracy =', pixel_acc)
+                print('Uncertified accuracy =', pixel_acc)
                 n, n0, sigma, tau, alpha = 100, 10, 0.25, 0.75, 0.001
                 # certification
                 _, samples_logits = self.sample(model, image_np01, label.size(), 
@@ -809,7 +822,7 @@ class Certifier:
                                                 samples_logits=samples_logits)
                 cig_per_class = self.info_gain_adaptive(certified_pred, label, label)
                 print('SegCertify CIG', sum(cig_per_class['cig_per_cls'])/sum(cig_per_class['num_pixels_per_cls'])/np.log(self.config.DATASET.NUM_CLASSES))
-                certified_adaptive_pred, gt_adaptive_label = self.adaptivecertify(model, image_np01, label, n0, n,
+                certified_adaptive_pred, gt_adaptive_label, _ = self.adaptivecertify(model, image_np01, label, n0, n,
                                                 sigma, tau, alpha, label.size(), 
                                                 border_padding=border_padding,
                                                 do_tqdm=True,
