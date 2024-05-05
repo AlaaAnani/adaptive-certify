@@ -23,7 +23,7 @@ DATASET:
 MODEL:
   NAME: seg_hrnet_ocr
   NUM_OUTPUTS: 2
-  PRETRAINED: 'pretrained_models/HRNet_W48_C_ssld_pretrained.pth'
+  PRETRAINED: 'HRNet-Semantic-Segmentation/pretrained_models/HRNet_W48_C_ssld_pretrained.pth'
   EXTRA:
     FINAL_CONV_KERNEL: 1
     STAGE1:
@@ -105,7 +105,7 @@ TRAIN:
   ALT_EVERY: 2
 TEST:
   # MODEL_FILE: 'hrnet_ocr_cocostuff_3965_torch04.pth'
-  MODEL_FILE: 'pretrained_models/cocostuff10k_025.pth'
+  MODEL_FILE: 'HRNet-Semantic-Segmentation/pretrained_models/cocostuff10k_025.pth'
   SCALE_LIST: (1.0,)
   IMAGE_SIZE:
   - 520

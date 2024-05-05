@@ -104,5 +104,5 @@ TEST:
   BASE_SIZE: 2048
   BATCH_SIZE_PER_GPU: 4
   MULTI_SCALE: false
-  MODEL_FILE: pretrained_models/cityscapes.pth
+  MODEL_FILE: HRNet-Semantic-Segmentation/pretrained_models/cityscapes.pth
   SCALE_LIST: [1]
