@@ -1,0 +1,3 @@
+[submodule "HRNet-Semantic-Segmentation"]
+	path = HRNet-Semantic-Segmentation
+	url = https://github.com/HRNet/HRNet-Semantic-Segmentation.git
