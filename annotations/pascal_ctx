@@ -1,0 +1,164 @@
+digraph {
+	graph [rankdir=TB]
+	node [shape=box]
+	{
+		rank=same
+		aeroplane [label=aeroplane fontsize=10]
+		bicycle [label=bicycle fontsize=10]
+		bird [label=bird fontsize=10]
+		boat [label=boat fontsize=10]
+		bottle [label=bottle fontsize=10]
+		bus [label=bus fontsize=10]
+		car [label=car fontsize=10]
+		cat [label=cat fontsize=10]
+		chair [label=chair fontsize=10]
+		cow [label=cow fontsize=10]
+		table [label=table fontsize=10]
+		dog [label=dog fontsize=10]
+		horse [label=horse fontsize=10]
+		motorbike [label=motorbike fontsize=10]
+		person [label=person fontsize=10]
+		pottedplant [label=pottedplant fontsize=10]
+		sheep [label=sheep fontsize=10]
+		sofa [label=sofa fontsize=10]
+		train [label=train fontsize=10]
+		tvmonitor [label=tvmonitor fontsize=10]
+		bag [label=bag fontsize=10]
+		bed [label=bed fontsize=10]
+		bench [label=bench fontsize=10]
+		book [label=book fontsize=10]
+		building [label=building fontsize=10]
+		cabinet [label=cabinet fontsize=10]
+		ceiling [label=ceiling fontsize=10]
+		cloth [label=cloth fontsize=10]
+		computer [label=computer fontsize=10]
+		cup [label=cup fontsize=10]
+		door [label=door fontsize=10]
+		fence [label=fence fontsize=10]
+		floor [label=floor fontsize=10]
+		flower [label=flower fontsize=10]
+		food [label=food fontsize=10]
+		grass [label=grass fontsize=10]
+		ground [label=ground fontsize=10]
+		keyboard [label=keyboard fontsize=10]
+		light [label=light fontsize=10]
+		mountain [label=mountain fontsize=10]
+		mouse [label=mouse fontsize=10]
+		curtain [label=curtain fontsize=10]
+		platform [label=platform fontsize=10]
+		sign [label=sign fontsize=10]
+		plate [label=plate fontsize=10]
+		road [label=road fontsize=10]
+		rock [label=rock fontsize=10]
+		shelves [label=shelves fontsize=10]
+		sidewalk [label=sidewalk fontsize=10]
+		sky [label=sky fontsize=10]
+		snow [label=snow fontsize=10]
+		bedclothes [label=bedclothes fontsize=10]
+		track [label=track fontsize=10]
+		tree [label=tree fontsize=10]
+		truck [label=truck fontsize=10]
+		wall [label=wall fontsize=10]
+		water [label=water fontsize=10]
+		window [label=window fontsize=10]
+		wood [label=wood fontsize=10]
+	}
+	{
+		rank=same
+		vehicle [label=vehicle fontsize=10]
+		animal [label=animal fontsize=10]
+		"household-items" [label="household-items" fontsize=10]
+		furniture [label=furniture fontsize=10]
+		construction [label=construction fontsize=10]
+		electronic [label=electronic fontsize=10]
+		surface [label=surface fontsize=10]
+		nature [label=nature fontsize=10]
+	}
+	{
+		rank=same
+		"living-being" [label="living-being" fontsize=10]
+		house [label=house fontsize=10]
+		structure [label=structure fontsize=10]
+	}
+	{
+		rank=same
+		outdoor [label=outdoor fontsize=10]
+		indoor [label=indoor fontsize=10]
+	}
+	{
+		rank=same
+		everything [label=everything fontsize=10]
+	}
+	vehicle -> aeroplane
+	vehicle -> bicycle
+	animal -> bird
+	vehicle -> boat
+	"household-items" -> bottle
+	vehicle -> bus
+	vehicle -> car
+	animal -> cat
+	furniture -> chair
+	animal -> cow
+	furniture -> table
+	animal -> dog
+	animal -> horse
+	vehicle -> motorbike
+	"living-being" -> person
+	"household-items" -> pottedplant
+	animal -> sheep
+	furniture -> sofa
+	vehicle -> train
+	electronic -> tvmonitor
+	"household-items" -> bag
+	furniture -> bed
+	furniture -> bench
+	"household-items" -> book
+	construction -> building
+	furniture -> cabinet
+	construction -> ceiling
+	"household-items" -> cloth
+	electronic -> computer
+	"household-items" -> cup
+	construction -> door
+	construction -> fence
+	surface -> floor
+	nature -> flower
+	"household-items" -> food
+	nature -> grass
+	surface -> ground
+	electronic -> keyboard
+	furniture -> light
+	nature -> mountain
+	electronic -> mouse
+	furniture -> curtain
+	construction -> platform
+	construction -> sign
+	"household-items" -> plate
+	surface -> road
+	nature -> rock
+	furniture -> shelves
+	surface -> sidewalk
+	nature -> sky
+	nature -> snow
+	"household-items" -> bedclothes
+	surface -> track
+	nature -> tree
+	vehicle -> truck
+	construction -> wall
+	nature -> water
+	furniture -> window
+	nature -> wood
+	outdoor -> vehicle
+	"living-being" -> animal
+	house -> "household-items"
+	house -> furniture
+	structure -> construction
+	house -> electronic
+	structure -> surface
+	outdoor -> nature
+	outdoor -> "living-being"
+	indoor -> house
+	outdoor -> structure
+	everything -> outdoor
+	everything -> indoor
+}

@@ -1,0 +1,422 @@
+digraph {
+	graph [rankdir=TB]
+	node [shape=box]
+	{
+		rank=same
+		person [label=person fontsize=10]
+		bicycle [label=bicycle fontsize=10]
+		car [label=car fontsize=10]
+		motorcycle [label=motorcycle fontsize=10]
+		airplane [label=airplane fontsize=10]
+		bus [label=bus fontsize=10]
+		train [label=train fontsize=10]
+		truck [label=truck fontsize=10]
+		boat [label=boat fontsize=10]
+		"traffic light" [label="traffic light" fontsize=10]
+		"fire hydrant" [label="fire hydrant" fontsize=10]
+		"stop sign" [label="stop sign" fontsize=10]
+		"parking meter" [label="parking meter" fontsize=10]
+		bench [label=bench fontsize=10]
+		bird [label=bird fontsize=10]
+		cat [label=cat fontsize=10]
+		dog [label=dog fontsize=10]
+		horse [label=horse fontsize=10]
+		sheep [label=sheep fontsize=10]
+		cow [label=cow fontsize=10]
+		elephant [label=elephant fontsize=10]
+		bear [label=bear fontsize=10]
+		zebra [label=zebra fontsize=10]
+		giraffe [label=giraffe fontsize=10]
+		backpack [label=backpack fontsize=10]
+		umbrella [label=umbrella fontsize=10]
+		handbag [label=handbag fontsize=10]
+		tie [label=tie fontsize=10]
+		suitcase [label=suitcase fontsize=10]
+		frisbee [label=frisbee fontsize=10]
+		skis [label=skis fontsize=10]
+		snowboard [label=snowboard fontsize=10]
+		"sports ball" [label="sports ball" fontsize=10]
+		kite [label=kite fontsize=10]
+		"baseball bat" [label="baseball bat" fontsize=10]
+		"baseball glove" [label="baseball glove" fontsize=10]
+		skateboard [label=skateboard fontsize=10]
+		surfboard [label=surfboard fontsize=10]
+		"tennis racket" [label="tennis racket" fontsize=10]
+		bottle [label=bottle fontsize=10]
+		"wine glass" [label="wine glass" fontsize=10]
+		cup [label=cup fontsize=10]
+		fork [label=fork fontsize=10]
+		knife [label=knife fontsize=10]
+		spoon [label=spoon fontsize=10]
+		bowl [label=bowl fontsize=10]
+		banana [label=banana fontsize=10]
+		apple [label=apple fontsize=10]
+		sandwich [label=sandwich fontsize=10]
+		orange [label=orange fontsize=10]
+		broccoli [label=broccoli fontsize=10]
+		carrot [label=carrot fontsize=10]
+		"hot dog" [label="hot dog" fontsize=10]
+		pizza [label=pizza fontsize=10]
+		donut [label=donut fontsize=10]
+		cake [label=cake fontsize=10]
+		chair [label=chair fontsize=10]
+		couch [label=couch fontsize=10]
+		"potted plant" [label="potted plant" fontsize=10]
+		bed [label=bed fontsize=10]
+		"dining table" [label="dining table" fontsize=10]
+		toilet [label=toilet fontsize=10]
+		tv [label=tv fontsize=10]
+		laptop [label=laptop fontsize=10]
+		mouse [label=mouse fontsize=10]
+		remote [label=remote fontsize=10]
+		keyboard [label=keyboard fontsize=10]
+		"cell phone" [label="cell phone" fontsize=10]
+		microwave [label=microwave fontsize=10]
+		oven [label=oven fontsize=10]
+		toaster [label=toaster fontsize=10]
+		sink [label=sink fontsize=10]
+		refrigerator [label=refrigerator fontsize=10]
+		book [label=book fontsize=10]
+		clock [label=clock fontsize=10]
+		vase [label=vase fontsize=10]
+		scissors [label=scissors fontsize=10]
+		"teddy bear" [label="teddy bear" fontsize=10]
+		"hair drier" [label="hair drier" fontsize=10]
+		toothbrush [label=toothbrush fontsize=10]
+		banner [label=banner fontsize=10]
+		blanket [label=blanket fontsize=10]
+		branch [label=branch fontsize=10]
+		bridge [label=bridge fontsize=10]
+		"building-other" [label="building-other" fontsize=10]
+		bush [label=bush fontsize=10]
+		cabinet [label=cabinet fontsize=10]
+		cage [label=cage fontsize=10]
+		cardboard [label=cardboard fontsize=10]
+		carpet [label=carpet fontsize=10]
+		"ceiling-other" [label="ceiling-other" fontsize=10]
+		"ceiling-tile" [label="ceiling-tile" fontsize=10]
+		cloth [label=cloth fontsize=10]
+		clothes [label=clothes fontsize=10]
+		clouds [label=clouds fontsize=10]
+		counter [label=counter fontsize=10]
+		cupboard [label=cupboard fontsize=10]
+		curtain [label=curtain fontsize=10]
+		"desk-stuff" [label="desk-stuff" fontsize=10]
+		dirt [label=dirt fontsize=10]
+		"door-stuff" [label="door-stuff" fontsize=10]
+		fence [label=fence fontsize=10]
+		"floor-marble" [label="floor-marble" fontsize=10]
+		"floor-other" [label="floor-other" fontsize=10]
+		"floor-stone" [label="floor-stone" fontsize=10]
+		"floor-tile" [label="floor-tile" fontsize=10]
+		"floor-wood" [label="floor-wood" fontsize=10]
+		flower [label=flower fontsize=10]
+		fog [label=fog fontsize=10]
+		"food-other" [label="food-other" fontsize=10]
+		fruit [label=fruit fontsize=10]
+		"furniture-other" [label="furniture-other" fontsize=10]
+		grass [label=grass fontsize=10]
+		gravel [label=gravel fontsize=10]
+		"ground-other" [label="ground-other" fontsize=10]
+		hill [label=hill fontsize=10]
+		house [label=house fontsize=10]
+		leaves [label=leaves fontsize=10]
+		light [label=light fontsize=10]
+		mat [label=mat fontsize=10]
+		metal [label=metal fontsize=10]
+		"mirror-stuff" [label="mirror-stuff" fontsize=10]
+		moss [label=moss fontsize=10]
+		mountain [label=mountain fontsize=10]
+		mud [label=mud fontsize=10]
+		napkin [label=napkin fontsize=10]
+		net [label=net fontsize=10]
+		paper [label=paper fontsize=10]
+		pavement [label=pavement fontsize=10]
+		pillow [label=pillow fontsize=10]
+		"plant-other" [label="plant-other" fontsize=10]
+		plastic [label=plastic fontsize=10]
+		platform [label=platform fontsize=10]
+		playingfield [label=playingfield fontsize=10]
+		railing [label=railing fontsize=10]
+		railroad [label=railroad fontsize=10]
+		river [label=river fontsize=10]
+		road [label=road fontsize=10]
+		rock [label=rock fontsize=10]
+		roof [label=roof fontsize=10]
+		rug [label=rug fontsize=10]
+		salad [label=salad fontsize=10]
+		sand [label=sand fontsize=10]
+		sea [label=sea fontsize=10]
+		shelf [label=shelf fontsize=10]
+		"sky-other" [label="sky-other" fontsize=10]
+		skyscraper [label=skyscraper fontsize=10]
+		snow [label=snow fontsize=10]
+		"solid-other" [label="solid-other" fontsize=10]
+		stairs [label=stairs fontsize=10]
+		stone [label=stone fontsize=10]
+		straw [label=straw fontsize=10]
+		"structural-other" [label="structural-other" fontsize=10]
+		table [label=table fontsize=10]
+		tent [label=tent fontsize=10]
+		"textile-other" [label="textile-other" fontsize=10]
+		towel [label=towel fontsize=10]
+		tree [label=tree fontsize=10]
+		vegetable [label=vegetable fontsize=10]
+		"wall-brick" [label="wall-brick" fontsize=10]
+		"wall-concrete" [label="wall-concrete" fontsize=10]
+		"wall-other" [label="wall-other" fontsize=10]
+		"wall-panel" [label="wall-panel" fontsize=10]
+		"wall-stone" [label="wall-stone" fontsize=10]
+		"wall-tile" [label="wall-tile" fontsize=10]
+		"wall-wood" [label="wall-wood" fontsize=10]
+		"water-other" [label="water-other" fontsize=10]
+		waterdrops [label=waterdrops fontsize=10]
+		"window-blind" [label="window-blind" fontsize=10]
+		"window-other" [label="window-other" fontsize=10]
+		wood [label=wood fontsize=10]
+	}
+	{
+		rank=same
+		plant [label=plant fontsize=10]
+		vehicle [label=vehicle fontsize=10]
+		sky [label=sky fontsize=10]
+		window [label=window fontsize=10]
+		furniture [label=furniture fontsize=10]
+		building [label=building fontsize=10]
+		"furniture-stuff" [label="furniture-stuff" fontsize=10]
+		ground [label=ground fontsize=10]
+		appliance [label=appliance fontsize=10]
+		sports [label=sports fontsize=10]
+		"raw-material" [label="raw-material" fontsize=10]
+		water [label=water fontsize=10]
+		floor [label=floor fontsize=10]
+		"food-stuff" [label="food-stuff" fontsize=10]
+		solid [label=solid fontsize=10]
+		textile [label=textile fontsize=10]
+		animal [label=animal fontsize=10]
+		food [label=food fontsize=10]
+		ceiling [label=ceiling fontsize=10]
+		structural [label=structural fontsize=10]
+		kitchen [label=kitchen fontsize=10]
+		wall [label=wall fontsize=10]
+		accessory [label=accessory fontsize=10]
+		electronic [label=electronic fontsize=10]
+	}
+	{
+		rank=same
+		"outdoor-stuff" [label="outdoor-stuff" fontsize=10]
+		"indoor-things" [label="indoor-things" fontsize=10]
+		"indoor-stuff" [label="indoor-stuff" fontsize=10]
+		"outdoor-things" [label="outdoor-things" fontsize=10]
+	}
+	{
+		rank=same
+		things [label=things fontsize=10]
+		stuff [label=stuff fontsize=10]
+	}
+	{
+		rank=same
+		everything [label=everything fontsize=10]
+	}
+	"outdoor-things" -> person
+	vehicle -> bicycle
+	vehicle -> car
+	vehicle -> motorcycle
+	vehicle -> airplane
+	vehicle -> bus
+	vehicle -> train
+	vehicle -> truck
+	vehicle -> boat
+	"outdoor-things" -> "traffic light"
+	"outdoor-things" -> "fire hydrant"
+	"outdoor-things" -> "stop sign"
+	"outdoor-things" -> "parking meter"
+	"outdoor-things" -> bench
+	animal -> bird
+	animal -> cat
+	animal -> dog
+	animal -> horse
+	animal -> sheep
+	animal -> cow
+	animal -> elephant
+	animal -> bear
+	animal -> zebra
+	animal -> giraffe
+	accessory -> backpack
+	accessory -> umbrella
+	accessory -> handbag
+	accessory -> tie
+	accessory -> suitcase
+	sports -> frisbee
+	sports -> skis
+	sports -> snowboard
+	sports -> "sports ball"
+	sports -> kite
+	sports -> "baseball bat"
+	sports -> "baseball glove"
+	sports -> skateboard
+	sports -> surfboard
+	sports -> "tennis racket"
+	kitchen -> bottle
+	kitchen -> "wine glass"
+	kitchen -> cup
+	kitchen -> fork
+	kitchen -> knife
+	kitchen -> spoon
+	kitchen -> bowl
+	food -> banana
+	food -> apple
+	food -> sandwich
+	food -> orange
+	food -> broccoli
+	food -> carrot
+	food -> "hot dog"
+	food -> pizza
+	food -> donut
+	food -> cake
+	furniture -> chair
+	furniture -> couch
+	furniture -> "potted plant"
+	furniture -> bed
+	furniture -> "dining table"
+	furniture -> toilet
+	electronic -> tv
+	electronic -> laptop
+	electronic -> mouse
+	electronic -> remote
+	electronic -> keyboard
+	electronic -> "cell phone"
+	appliance -> microwave
+	appliance -> oven
+	appliance -> toaster
+	appliance -> sink
+	appliance -> refrigerator
+	"indoor-things" -> book
+	"indoor-things" -> clock
+	"indoor-things" -> vase
+	"indoor-things" -> scissors
+	"indoor-things" -> "teddy bear"
+	"indoor-things" -> "hair drier"
+	"indoor-things" -> toothbrush
+	textile -> banner
+	textile -> blanket
+	plant -> branch
+	building -> bridge
+	building -> "building-other"
+	plant -> bush
+	"furniture-stuff" -> cabinet
+	structural -> cage
+	"raw-material" -> cardboard
+	floor -> carpet
+	ceiling -> "ceiling-other"
+	ceiling -> "ceiling-tile"
+	textile -> cloth
+	textile -> clothes
+	sky -> clouds
+	"furniture-stuff" -> counter
+	"furniture-stuff" -> cupboard
+	textile -> curtain
+	"furniture-stuff" -> "desk-stuff"
+	ground -> dirt
+	"furniture-stuff" -> "door-stuff"
+	structural -> fence
+	floor -> "floor-marble"
+	floor -> "floor-other"
+	floor -> "floor-stone"
+	floor -> "floor-tile"
+	floor -> "floor-wood"
+	plant -> flower
+	water -> fog
+	"food-stuff" -> "food-other"
+	"food-stuff" -> fruit
+	"furniture-stuff" -> "furniture-other"
+	plant -> grass
+	ground -> gravel
+	ground -> "ground-other"
+	solid -> hill
+	building -> house
+	plant -> leaves
+	"furniture-stuff" -> light
+	textile -> mat
+	"raw-material" -> metal
+	"furniture-stuff" -> "mirror-stuff"
+	plant -> moss
+	solid -> mountain
+	ground -> mud
+	textile -> napkin
+	structural -> net
+	"raw-material" -> paper
+	ground -> pavement
+	textile -> pillow
+	plant -> "plant-other"
+	"raw-material" -> plastic
+	ground -> platform
+	ground -> playingfield
+	structural -> railing
+	ground -> railroad
+	water -> river
+	ground -> road
+	solid -> rock
+	building -> roof
+	textile -> rug
+	"food-stuff" -> salad
+	ground -> sand
+	water -> sea
+	"furniture-stuff" -> shelf
+	sky -> "sky-other"
+	building -> skyscraper
+	ground -> snow
+	solid -> "solid-other"
+	"furniture-stuff" -> stairs
+	solid -> stone
+	plant -> straw
+	structural -> "structural-other"
+	"furniture-stuff" -> table
+	building -> tent
+	textile -> "textile-other"
+	textile -> towel
+	plant -> tree
+	"food-stuff" -> vegetable
+	wall -> "wall-brick"
+	wall -> "wall-concrete"
+	wall -> "wall-other"
+	wall -> "wall-panel"
+	wall -> "wall-stone"
+	wall -> "wall-tile"
+	wall -> "wall-wood"
+	water -> "water-other"
+	water -> waterdrops
+	window -> "window-blind"
+	window -> "window-other"
+	solid -> wood
+	"outdoor-stuff" -> plant
+	"outdoor-things" -> vehicle
+	"outdoor-stuff" -> sky
+	"indoor-stuff" -> window
+	"indoor-things" -> furniture
+	"outdoor-stuff" -> building
+	"indoor-stuff" -> "furniture-stuff"
+	"outdoor-stuff" -> ground
+	"indoor-things" -> appliance
+	"outdoor-things" -> sports
+	"indoor-stuff" -> "raw-material"
+	"outdoor-stuff" -> water
+	"indoor-stuff" -> floor
+	"indoor-stuff" -> "food-stuff"
+	"outdoor-stuff" -> solid
+	"indoor-stuff" -> textile
+	"outdoor-things" -> animal
+	"indoor-things" -> food
+	"indoor-stuff" -> ceiling
+	"outdoor-stuff" -> structural
+	"indoor-things" -> kitchen
+	"indoor-stuff" -> wall
+	"outdoor-things" -> accessory
+	"indoor-things" -> electronic
+	stuff -> "outdoor-stuff"
+	things -> "indoor-things"
+	stuff -> "indoor-stuff"
+	things -> "outdoor-things"
+	everything -> things
+	everything -> stuff
+}
