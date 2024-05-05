@@ -1,0 +1,74 @@
+digraph {
+	graph [rankdir=TB]
+	node [shape=box]
+	{
+		rank=same
+		road [label=road fontsize=10]
+		sidewalk [label=sidewalk fontsize=10]
+		building [label=building fontsize=10]
+		wall [label=wall fontsize=10]
+		fence [label=fence fontsize=10]
+		pole [label=pole fontsize=10]
+		"traffic light" [label="traffic light" fontsize=10]
+		"traffic sign" [label="traffic sign" fontsize=10]
+		vegetation [label=vegetation fontsize=10]
+		terrain [label=terrain fontsize=10]
+		sky [label=sky fontsize=10]
+		person [label=person fontsize=10]
+		rider [label=rider fontsize=10]
+		car [label=car fontsize=10]
+		truck [label=truck fontsize=10]
+		bus [label=bus fontsize=10]
+		train [label=train fontsize=10]
+		motorcycle [label=motorcycle fontsize=10]
+		bicycle [label=bicycle fontsize=10]
+	}
+	{
+		rank=same
+		"construction and vegetation" [label="construction and vegetation" fontsize=10]
+		"traffic-sign" [label="traffic-sign" fontsize=10]
+		human [label=human fontsize=10]
+		vehicle [label=vehicle fontsize=10]
+	}
+	{
+		rank=same
+		"static obstacle" [label="static obstacle" fontsize=10]
+		"dynamic obstacle" [label="dynamic obstacle" fontsize=10]
+		"flat obstacle" [label="flat obstacle" fontsize=10]
+	}
+	{
+		rank=same
+		obstacle [label=obstacle fontsize=10]
+	}
+	{
+		rank=same
+		everything [label=everything fontsize=10]
+	}
+	everything -> road
+	"flat obstacle" -> sidewalk
+	"construction and vegetation" -> building
+	"construction and vegetation" -> wall
+	"construction and vegetation" -> fence
+	"construction and vegetation" -> pole
+	"traffic-sign" -> "traffic light"
+	"traffic-sign" -> "traffic sign"
+	"construction and vegetation" -> vegetation
+	"flat obstacle" -> terrain
+	everything -> sky
+	human -> person
+	human -> rider
+	vehicle -> car
+	vehicle -> truck
+	vehicle -> bus
+	vehicle -> train
+	vehicle -> motorcycle
+	vehicle -> bicycle
+	"static obstacle" -> "construction and vegetation"
+	"static obstacle" -> "traffic-sign"
+	"dynamic obstacle" -> human
+	"dynamic obstacle" -> vehicle
+	obstacle -> "static obstacle"
+	obstacle -> "dynamic obstacle"
+	obstacle -> "flat obstacle"
+	everything -> obstacle
+}
