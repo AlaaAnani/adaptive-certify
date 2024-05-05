@@ -88,4 +88,18 @@ HRNet-Semantic-Segmentation/
 │   ├── HRNet_W48_C_ssld_pretrained.pth
 │   └── pascal.pth
 ```
+## Run Certification
+### Sigma inference
+To run certification on AdaptiveCertify, and also the baseline SegCertify:
+```
+python tools/test_adaptivecert.py --cfg configs/cityscapes/cityscapes.yaml --exp inference
+```
+Possible values for cfg depending on the datasets are:
+- 'configs/cocostuff10k/cocostuff10k.yaml'
+- 'configs/pascal_ctx/pascal_ctx.yaml'
+- 'configs/acdc/acdc.yaml'
+- 'configs/cityscapes/cityscapes.yaml'
+### Experiments replication
+To replicate the experiment figures we have in the paper, you can assign to --exp either of these values: `['inference', 'table', 'distribution', 'images', 'fluctuations', 'find_best_threshold']`
 
+To graph out the logged outputs, use the IPYNB Notebooks we have in `experiments/`.
