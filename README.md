@@ -42,17 +42,18 @@ HRNet-Semantic-Segmentation
 │   │   ├── cocostuff-10k-v1.1.json
 │   │   ├── train
 │   │   └── val
+│   └── pascal_ctx
+│   |   ├── trainval
+│   |   └── VOCdevkit
 │   ├── list
 │   │   ├── acdc
 │   │   ├── ade20k
 │   │   ├── cityscapes
 │   │   └── cocostuff
-│   └── pascal_ctx
-│       ├── trainval
-│       └── VOCdevkit
+
 ```
 ### Hierarchies
-We already upload our pre-defined hierarchies JSONs in the `configs/<dataset>/<dataset>_hierarchy.json`. 
+We already upload our pre-defined hierarchies JSONs in `configs/<dataset>/<dataset>_hierarchy.json`. 
 
 However, if you would like to create them from scratch, we also provide the script for this under `annotations/<dataset>.py`
 
@@ -62,7 +63,7 @@ python annotations/cityscapes.py
 ```
 which will create `configs/cityscapes/cityscapes_hierarchy.json`.
 
-Feel free to experiment with different hierarchy DAG structures on top every dataset fine-grained classes in level 0. To do so, change the nodes arrange in a dataset's script.
+Feel free to experiment with different hierarchy DAG structures on top every dataset fine-grained classes in level 0. To do so, change the nodes arrangement in a dataset's script `annotations/<dataset>.py`.
 
 ### Cityscapes
 We downloaded the dataset from the [official Cityscapes dataset website](https://www.cityscapes-dataset.com/downloads/).
