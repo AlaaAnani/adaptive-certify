@@ -64,7 +64,7 @@ categories.append({'name': 'wall', 'level': 0,'supercategory': 'construction'})
 categories.append({'name': 'water', 'level': 0,'supercategory': 'nature'})
 categories.append({'name': 'window', 'level': 0,'supercategory': 'furniture'})
 categories.append({'name': 'wood', 'level': 0,'supercategory': 'nature'})
-file_path = '/BS/mlcysec2/work/hierarchical-certification/HRNet-Semantic-Segmentation/data/pascal_ctx/labels_59_ordered.txt'
+file_path = 'annotations/pascal_labels_59_ordered.txt'
 items = []
 with open(file_path, 'r') as file:
     for line in file:
@@ -185,7 +185,7 @@ for node in nodes:
     
 
 hierarchy_dict['node_info_gain_lookup'] = dict(sorted(node_info_gain_lookup.items(), key=lambda item: item[0]))
-filepath = 'HRNet-Semantic-Segmentation/data/pascal_ctx/pascal_ctx_hierarchy.json'
+filepath = 'configs/pascal_ctx/pascal_ctx_hierarchy.json'
 print('Saving created hierarchy DAG into', filepath)
 json.dump(hierarchy_dict, open(filepath, 'w'), indent=4)
 

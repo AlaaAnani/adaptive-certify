@@ -18,7 +18,7 @@ DATASET:
   TRAIN_SET: 'train'
   NUM_CLASSES: 59
   ABSTAIN_LABEL: 254
-  HIERARCHY: 'pascal_ctx/pascal_ctx_hierarchy.json'
+  HIERARCHY: 'configs/pascal_ctx/pascal_ctx_hierarchy.json'
   THRESHOLD_FUNCTION: [0, 0.1, 0.4]
 MODEL:
   NAME: seg_hrnet
@@ -106,7 +106,7 @@ TEST:
   - 480
   - 480
   BASE_SIZE: 520
-  BATCH_SIZE_PER_GPU: 1
+  BATCH_SIZE_PER_GPU: 8
   FLIP_TEST: false
   MULTI_SCALE: false
-  NUM_SAMPLES: 100
+  # NUM_SAMPLES: 100

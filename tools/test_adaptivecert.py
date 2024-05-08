@@ -55,15 +55,15 @@ class Certifier:
         parser = argparse.ArgumentParser(description='Train segmentation network')
         
         parser.add_argument('--cfg',
-                            #default='configs/cocostuff10k/cocostuff10k.yaml',
+                            default='configs/cocostuff/cocostuff.yaml',
                             #default='configs/pascal_ctx/pascal_ctx.yaml',
-                            default='configs/acdc/acdc.yaml',
+                            #default='configs/acdc/acdc.yaml',
                             #default='configs/cityscapes/cityscapes.yaml',
 
                             help='experiment configure file name',
                             type=str)
         parser.add_argument('--exp',
-                            default='inference',
+                            default='table',
                             help='experiment name',
                             type=str,
                             choices=['inference', 'table', 'distribution', 'images', 'fluctuations', 'best_thresh'])
@@ -138,7 +138,7 @@ class Certifier:
             pin_memory=True)
         self.test_loader = testloader
         # load the hierarchy
-        self.hierarchy = json.load(open(os.path.join(config.DATASET.ROOT, config.DATASET.HIERARCHY), 'r'))
+        self.hierarchy = json.load(open(os.path.join(config.DATASET.HIERARCHY), 'r'))
         os.makedirs(self.config.CACHE_DIR, exist_ok=True)
         self.logdir = os.path.join(self.config.LOG_DIR, self.config.DATASET.DATASET)
         os.makedirs(self.logdir, exist_ok=True)
@@ -339,21 +339,21 @@ class Certifier:
                     h_distribution_dict[l]['correctly_certified_per_level'] = (filter_idx & (h_map == l)).sum()
                     h_distribution_dict[l]['wrongly_certified_per_level'] = (non_ignore_idx & wrong_pred & c_idx & (h_map == l)).sum()
                     h_distribution_dict[l]['num_pixels_per_level'] = (non_ignore_idx & (h_map == l)).sum()
-                    
-                    h_distribution_dict[l]['abstain_per_level_boundary'] = (boundary_idx & non_ignore_idx & abstain_idx & (h_map == l)).sum()
-                    h_distribution_dict[l]['abstain_per_level_non_boundary'] = (non_boundary_idx & non_ignore_idx & abstain_idx & (h_map == l)).sum()
-                    
-                    h_distribution_dict[l]['cig_per_level_boundary'] = c_ig_map[boundary_idx & filter_idx & (h_map == l)].sum()
-                    h_distribution_dict[l]['cig_per_level_non_boundary'] = c_ig_map[non_boundary_idx & filter_idx & (h_map == l)].sum()
-                    
-                    h_distribution_dict[l]['correctly_certified_per_level_boundary'] = (boundary_idx & filter_idx & (h_map == l)).sum()
-                    h_distribution_dict[l]['correctly_certified_per_level_non_boundary'] = (non_boundary_idx & filter_idx & (h_map == l)).sum()
+                    if boundary:
+                        h_distribution_dict[l]['abstain_per_level_boundary'] = (boundary_idx & non_ignore_idx & abstain_idx & (h_map == l)).sum()
+                        h_distribution_dict[l]['abstain_per_level_non_boundary'] = (non_boundary_idx & non_ignore_idx & abstain_idx & (h_map == l)).sum()
+                        
+                        h_distribution_dict[l]['cig_per_level_boundary'] = c_ig_map[boundary_idx & filter_idx & (h_map == l)].sum()
+                        h_distribution_dict[l]['cig_per_level_non_boundary'] = c_ig_map[non_boundary_idx & filter_idx & (h_map == l)].sum()
+                        
+                        h_distribution_dict[l]['correctly_certified_per_level_boundary'] = (boundary_idx & filter_idx & (h_map == l)).sum()
+                        h_distribution_dict[l]['correctly_certified_per_level_non_boundary'] = (non_boundary_idx & filter_idx & (h_map == l)).sum()
 
-                    h_distribution_dict[l]['wrongly_certified_per_level_boundary'] = (boundary_idx & non_ignore_idx & wrong_pred & c_idx & (h_map == l)).sum()
-                    h_distribution_dict[l]['wrongly_certified_per_level_non_boundary'] = (non_boundary_idx & non_ignore_idx & wrong_pred & c_idx & (h_map == l)).sum()
+                        h_distribution_dict[l]['wrongly_certified_per_level_boundary'] = (boundary_idx & non_ignore_idx & wrong_pred & c_idx & (h_map == l)).sum()
+                        h_distribution_dict[l]['wrongly_certified_per_level_non_boundary'] = (non_boundary_idx & non_ignore_idx & wrong_pred & c_idx & (h_map == l)).sum()
 
-                    h_distribution_dict[l]['num_pixels_per_level_boundary'] = (boundary_idx & non_ignore_idx & (h_map == l)).sum()
-                    h_distribution_dict[l]['num_pixels_per_level_non_boundary'] = (non_boundary_idx & non_ignore_idx & (h_map == l)).sum()
+                        h_distribution_dict[l]['num_pixels_per_level_boundary'] = (boundary_idx & non_ignore_idx & (h_map == l)).sum()
+                        h_distribution_dict[l]['num_pixels_per_level_non_boundary'] = (non_boundary_idx & non_ignore_idx & (h_map == l)).sum()
 
 
                 d['h_distribution_dict'] = h_distribution_dict
@@ -615,7 +615,7 @@ class Certifier:
                                                         do_tqdm=True,
                                                         samples_logits=samples_logits)
                         k = (n, n0, None, 0, sigma, tau)
-                        cig_per_class, d = self.info_gain_adaptive(certified_pred, label, label, stats=True)
+                        cig_per_class, d = self.info_gain_adaptive(certified_pred, label, label, stats=True, boundary=True)
                         print(sum(cig_per_class['cig_per_cls'])/sum(cig_per_class['num_pixels_per_cls'])/np.log(self.config.DATASET.NUM_CLASSES), None, sigma, n)
 
                         stats[name][k] = d
@@ -626,7 +626,7 @@ class Certifier:
                                                         f=f,
                                                         do_tqdm=True,
                                                         samples_logits=samples_logits)
-                        cig_per_class, d = self.info_gain_adaptive(certified_adaptive_pred, gt_adaptive_label, label, stats=True, h_map=h_map)
+                        cig_per_class, d = self.info_gain_adaptive(certified_adaptive_pred, gt_adaptive_label, label, stats=True, h_map=h_map, boundary=True)
                         print('\n', sum(cig_per_class['cig_per_cls'])/sum(cig_per_class['num_pixels_per_cls'])/np.log(self.config.DATASET.NUM_CLASSES), f, sigma, n)
                         k = (n, n0, str(f), 4, sigma, tau)
                         stats[name][k] = d

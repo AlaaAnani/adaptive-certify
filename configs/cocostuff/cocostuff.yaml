@@ -17,7 +17,7 @@ DATASET:
   TRAIN_SET: 'list/cocostuff/train.lst'
   NUM_CLASSES: 171
   ABSTAIN_LABEL: 254
-  HIERARCHY: 'cocostuff/cocostuff_hierarchy.json'
+  HIERARCHY: 'configs/cocostuff/cocostuff_hierarchy.json'
   THRESHOLD_FUNCTION: [0, 0.3, 0.7]
 
 MODEL:
@@ -111,7 +111,6 @@ TEST:
   - 520
   - 520
   BASE_SIZE: 520
-  BATCH_SIZE_PER_GPU: 6
-  NUM_SAMPLES: 100
+  BATCH_SIZE_PER_GPU: 10
   FLIP_TEST: false
   MULTI_SCALE: false

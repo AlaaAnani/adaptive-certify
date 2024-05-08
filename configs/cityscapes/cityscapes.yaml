@@ -18,7 +18,7 @@ DATASET:
   TRAIN_SET: 'list/cityscapes/train.lst'
   NUM_CLASSES: 19
   ABSTAIN_LABEL: 254
-  HIERARCHY: 'cityscapes/cityscapes_hierarchy.json'
+  HIERARCHY: 'configs/cityscapes/cityscapes_hierarchy.json'
   THRESHOLD_FUNCTION: [0, 0, 0.25]
 MODEL:
   NAME: seg_hrnet

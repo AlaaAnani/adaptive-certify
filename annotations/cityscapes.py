@@ -127,7 +127,7 @@ for node in nodes:
     
 
 hierarchy_dict['node_info_gain_lookup'] = node_info_gain_lookup
-filepath = f'HRNet-Semantic-Segmentation/data/{ds}/{ds}_hierarchy.json'
+filepath = f'configs/{ds}/{ds}_hierarchy.json'
 print('Saving created hierarchy DAG into', filepath)
 json.dump(hierarchy_dict, open(filepath, 'w'), indent=4)
 

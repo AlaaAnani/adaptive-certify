@@ -1,5 +1,3 @@
-Implementation for our accepted ICML 2024 paper:
-
 # AdaptiveCertify: Adaptive Hierarchical Certification for Segmentation using Randomized Smoothing
 ## Abstract
 Common certification methods operate on a flat pre-defined set of fine-grained classes. In this paper, however, we propose a novel, more general, and practical setting, namely adaptive hierarchical certification for image semantic segmentation. In this setting, the certification can be within a multi-level hierarchical label space composed of fine to coarse levels. Unlike classic methods where the certification would abstain for unstable components, our approach adaptively relaxes the certification to a coarser level within the hierarchy. This relaxation lowers the abstain rate whilst providing more certified semantically meaningful information. We mathematically formulate the problem setup and introduce, for the first time, an adaptive hierarchical certification algorithm for image semantic segmentation, that certifies image pixels within a hierarchy and prove the correctness of its guarantees. Since certified accuracy does not take the loss of information into account when traversing into a coarser hierarchy level, we introduce a novel evaluation paradigm for adaptive hierarchical certification, namely the certified information gain metric, which is proportional to the class granularity level. Our extensive evaluation experiments on real-world challenging datasets such as Cityscapes, ACDC, PASCAL-Context, and COCO-Stuff-10K demonstrate that our adaptive algorithm achieves a higher certified information gain and a lower abstain rate compared to the current state-of-the-art certification method, as well as other non-adaptive versions of it.
@@ -35,16 +33,13 @@ We place the datasets in the following directory format under `HRNet-Semantic-Se
 HRNet-Semantic-Segmentation
 ├── data
 │   ├── acdc
-│   │   ├── acdc_hierarchy.json
 │   │   ├── gt
 │   │   ├── rgb_anon
 │   ├── cityscapes
-│   │   ├── cityscapes_hierarchy.json
 │   │   ├── gtFine
 │   │   ├── leftImg8bit
 │   ├── cocostuff
 │   │   ├── cocostuff-10k-v1.1.json
-│   │   ├── cocostuff_hierarchy.json
 │   │   ├── train
 │   │   └── val
 │   ├── list
@@ -53,10 +48,22 @@ HRNet-Semantic-Segmentation
 │   │   ├── cityscapes
 │   │   └── cocostuff
 │   └── pascal_ctx
-│       ├── pascal_ctx_hierarchy.json
 │       ├── trainval
 │       └── VOCdevkit
 ```
+### Hierarchies
+We already upload our pre-defined hierarchies JSONs in the `configs/<dataset>/<dataset>_hierarchy.json`. 
+
+However, if you would like to create them from scratch, we also provide the script for this under `annotations/<dataset>.py`
+
+For example, to create the hierarchy JSON for Cityscapes, run the following:
+```
+python annotations/cityscapes.py
+```
+which will create `configs/cityscapes/cityscapes_hierarchy.json`.
+
+Feel free to experiment with different hierarchy DAG structures on top every dataset fine-grained classes in level 0. To do so, change the nodes arrange in a dataset's script.
+
 ### Cityscapes
 We downloaded the dataset from the [official Cityscapes dataset website](https://www.cityscapes-dataset.com/downloads/).
 ### ACDC

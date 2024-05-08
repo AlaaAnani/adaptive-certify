@@ -4,7 +4,7 @@ from graphviz import Digraph
 from tqdm import tqdm
 import os
 
-annotations_path = 'HRNet-Semantic-Segmentation/data/cocostuff/cocostuff-10k-v1.1.json'
+annotations_path = 'configs/cocostuff/cocostuff.json'
 coco = COCO(annotations_path)
 
 clsID_to_trID = {
