@@ -109,7 +109,17 @@ Possible values for cfg depending on the datasets are:
 - 'configs/pascal_ctx/pascal_ctx.yaml'
 - 'configs/acdc/acdc.yaml'
 - 'configs/cityscapes/cityscapes.yaml'
-### Experiments replication
+### Experiments reproduction
 To replicate the experiment figures we have in the paper, you can assign to --exp either of these values: `['inference', 'table', 'distribution', 'images', 'fluctuations', 'find_best_threshold']`
 
 To graph out the logged outputs, use the IPYNB Notebooks we have in `experiments/`.
+# Contributors
+[Alaa Anani](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/alaa-anani) (aanani@mpi-inf.mpg.de)
+
+[Tobias Lorenz](https://www.t-lorenz.com/) (tobias.lorenz@cispa.de)
+
+[Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele) (schiele@mpi-inf.mpg.de)
+
+[Mario Fritz](https://cispa.de/en/people/mario.fritz) (fritz@cispa.de)
+
+
