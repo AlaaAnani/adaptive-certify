@@ -52,6 +52,16 @@ HRNet-Semantic-Segmentation
 │   │   └── cocostuff
 
 ```
+### Cityscapes
+Download the dataset from the [official Cityscapes dataset website](https://www.cityscapes-dataset.com/downloads/).
+### ACDC
+Download the dataset from the [official ACDC dataset website](https://acdc.vision.ee.ethz.ch/download)
+### PASCAL-Context
+Follow the [mmsegmentation instructions](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#pascal-context) to download the dataset API and do the conversions.
+### COCO-Stuff-10K
+Follow the [mmsegmentation instructions](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#coco-stuff-10k) to download the dataset and run the necessary label conversions.
+
+
 ### Hierarchies
 We already upload our pre-defined hierarchies JSONs in `configs/<dataset>/<dataset>_hierarchy.json`. 
 
@@ -65,14 +75,7 @@ which will create `configs/cityscapes/cityscapes_hierarchy.json`.
 
 Feel free to experiment with different hierarchy DAG structures on top every dataset fine-grained classes in level 0. To do so, change the nodes arrangement in a dataset's script `annotations/<dataset>.py`.
 
-### Cityscapes
-We downloaded the dataset from the [official Cityscapes dataset website](https://www.cityscapes-dataset.com/downloads/).
-### ACDC
-We downloaded the dataset from the [official ACDC dataset website](https://acdc.vision.ee.ethz.ch/download)
-### PASCAL-Context
-We followed the [mmsegmentation instructions](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#pascal-context) to download the dataset API and do the conversions.
-### COCO-Stuff-10K
-We followed the [mmsegmentation instructions](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#coco-stuff-10k) to download the dataset and run the necessary label conversions.
+
 # Model Weights
 ### Cityscapes, ACDC, PASCAL-Context:
 For models trained on Cityscapes and PASCAL-Context with a noise of $\sigma=0.25$, we use the weights provided by the repository [segmentation-smoothing](https://github.com/eth-sri/segmentation-smoothing/tree/main/code)
@@ -104,22 +107,33 @@ To run certification on AdaptiveCertify, and also the baseline SegCertify:
 ```
 python tools/test_adaptivecert.py --cfg configs/cityscapes/cityscapes.yaml --exp inference
 ```
-Possible values for cfg depending on the datasets are:
-- 'configs/cocostuff10k/cocostuff10k.yaml'
+Possible values for cfg depending on the dataset are:
+- 'configs/cocostuff/cocostuff.yaml'
 - 'configs/pascal_ctx/pascal_ctx.yaml'
 - 'configs/acdc/acdc.yaml'
 - 'configs/cityscapes/cityscapes.yaml'
-### Experiments reproduction
-To replicate the experiment figures we have in the paper, you can assign to --exp either of these values: `['inference', 'table', 'distribution', 'images', 'fluctuations', 'find_best_threshold']`
 
-To graph out the logged outputs, use the IPYNB Notebooks we have in `experiments/`.
+### Experiments reproduction
+To replicate the experiment figures we have in the paper, you need to run the tools/test_adaptivecert.py script.
+1. You can assign to the experiment argument (--exp) either of these values: `['inference', 'table', 'distribution', 'images', 'fluctuations', 'find_best_threshold']`
+```
+python tools/test_adaptivecert.py --exp <experiment name> --cfg <dataset config file>
+```
+For example, to reproduce the table in our results on Cityscapes:
+```
+python tools/test_adaptivecert.py --exp table --cfg configs/cityscapes/cityscapes.yaml
+```
+This creates a .pkl file per image: `logs/<dataset_name>/<experiment name>/<image name>.pkl` containing the necessary data to create the figure.
+
+2. To graph out the logged outputs, or produce corresponding latex code for the figures, use the IPYNB Notebooks we have in `experiments/`. They scan the generated data in the logs/ directory created by step 1, and use them to generate the needed visuals.
+   
 # Contributors
 [Alaa Anani](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/alaa-anani) (aanani@mpi-inf.mpg.de)
 
 [Tobias Lorenz](https://www.t-lorenz.com/) (tobias.lorenz@cispa.de)
 
-[Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele) (schiele@mpi-inf.mpg.de)
+[Prof. Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele) (schiele@mpi-inf.mpg.de)
 
-[Mario Fritz](https://cispa.de/en/people/mario.fritz) (fritz@cispa.de)
+[Prof. Mario Fritz](https://cispa.de/en/people/mario.fritz) (fritz@cispa.de)
 
 
