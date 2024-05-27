@@ -132,8 +132,8 @@ This creates a .pkl file per image: `logs/<dataset_name>/<experiment name>/<imag
 
 [Tobias Lorenz](https://www.t-lorenz.com/) (tobias.lorenz@cispa.de)
 
-[Prof. Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele) (schiele@mpi-inf.mpg.de)
+[Prof. Dr. Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele) (schiele@mpi-inf.mpg.de)
 
-[Prof. Mario Fritz](https://cispa.saarland/group/fritz/) (fritz@cispa.de)
+[Prof. Dr. Mario Fritz](https://cispa.saarland/group/fritz/) (fritz@cispa.de)
 
 
