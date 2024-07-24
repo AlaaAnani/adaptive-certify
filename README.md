@@ -1,5 +1,17 @@
-A. Anani, T. Lorenz, B. Schiele and M. Fritz. **Adaptive Hierarchical Certification for Segmentation using Randomized Smoothing**. In _International Conference on Machine Learning (ICML)_, 2024. [(OpenReview paper link)](https://openreview.net/forum?id=iOEReiiTit&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICML.cc%2F2024%2FConference%2FAuthors%23your-submissions)). arXiv link: [https://arxiv.org/abs/2402.08400](https://arxiv.org/abs/2402.08400)
 # Adaptive Hierarchical Certification for Segmentation using Randomized Smoothing 
+
+[paper PDF](https://raw.githubusercontent.com/mlresearch/v235/main/assets/anani24a/anani24a.pdf) | [arXiv](https://arxiv.org/abs/2402.08400) | [poster](https://icml.cc/media/PosterPDFs/ICML%202024/33356.png?t=1720897031.2040431)
+
+Code for the paper: 
+
+Alaa Anani, Tobias Lorenz, Bernt Schiele and Mario Fritz. Adaptive Hierarchical Certification for Segmentation using Randomized Smoothing. In _International Conference on Machine Learning (ICML)_, 2024. 
+
+
+
+<figure>
+  <img src="images/ICML24-Anani.png" alt="ImageAltText">
+</figure>
+
 ## Abstract
 Certification for machine learning is proving that no adversarial sample can evade a model within a range under certain conditions, a necessity for safety-critical domains. Common certification methods for segmentation use a flat set of fine-grained classes, leading to high abstain rates due to model uncertainty across many classes. We propose a novel, more practical setting, which certifies pixels within a multi-level hierarchy, and adaptively relaxes the certification to a coarser level for unstable components classic methods would abstain from, effectively lowering the abstain rate whilst providing more certified semantically meaningful information. We mathematically formulate the problem setup, introduce an adaptive hierarchical certification algorithm and prove the correctness of its guarantees. Since certified accuracy does not take the loss of information into account for coarser classes, we introduce the Certified Information Gain ($\mathrm{CIG}$) metric, which is proportional to the class granularity level. Our extensive experiments on the datasets Cityscapes, PASCAL-Context, ACDC and COCO-Stuff demonstrate that our adaptive algorithm achieves a higher $\mathrm{CIG}$ and lower abstain rate compared to the current state-of-the-art certification method.
 
