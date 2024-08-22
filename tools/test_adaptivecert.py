@@ -364,7 +364,8 @@ class Certifier:
                     d[f'num_pixels_{b}'] = (non_ignore_idx & idx).sum()
             if images:
                 d['classes_certify'] = classes_certify
-                d['boundary_map'] = boundary_map
+                if boundary:
+                    d['boundary_map'] = boundary_map
                 d['label'] = label
                 d['gt_adaptive_label'] = gt_adaptive_label
             return ig_per_class_dict, d
@@ -698,7 +699,7 @@ class Certifier:
     def exp_images(self, model):
         model.eval()
         i = 0
-        logdir = os.path.join(self.logdir, 'images')
+        logdir = os.path.join(self.logdir, 'images_500')
         os.makedirs(logdir, exist_ok=True)
         with torch.no_grad():
             for _, batch in enumerate(tqdm(self.test_loader)):
@@ -737,7 +738,7 @@ class Certifier:
                 samples_logits = None
                 n0, alpha = 10, 0.001
                 for sigma in [0.25]:
-                    for n in list(reversed(sorted([100]))):
+                    for n in list(reversed(sorted([100, 500]))):
                         if n==100: tau=0.75
                         if n==500: tau=0.95
                         if samples_logits is None:
@@ -757,7 +758,7 @@ class Certifier:
                         #stats[name]['images'] = {'certified_seg': certified_pred}
 
                         k = (n, n0, None, 0, sigma, tau)
-                        cig_per_class, d = self.info_gain_adaptive(certified_pred, label, label, stats=True, images=True)
+                        cig_per_class, d = self.info_gain_adaptive(certified_pred, label, label, stats=True, images=True, boundary=True)
                         d['image_np01'] = image_np01
                         print(sum(cig_per_class['cig_per_cls'])/sum(cig_per_class['num_pixels_per_cls'])/np.log(self.config.DATASET.NUM_CLASSES), None, sigma, n)
 
@@ -770,7 +771,7 @@ class Certifier:
                                                         do_tqdm=True,
                                                         samples_logits=samples_logits)
                         print('h_map', len(h_map), np.array(h_map).shape)
-                        cig_per_class, d = self.info_gain_adaptive(certified_adaptive_pred, gt_adaptive_label, label, stats=True, h_map=h_map, images=True)
+                        cig_per_class, d = self.info_gain_adaptive(certified_adaptive_pred, gt_adaptive_label, label, stats=True, h_map=h_map, boundary=True, images=True)
                         d['image_np01'] = image_np01
                         print('\n', sum(cig_per_class['cig_per_cls'])/sum(cig_per_class['num_pixels_per_cls'])/np.log(self.config.DATASET.NUM_CLASSES), f, sigma, n)
                         k = (n, n0, str(f), 4, sigma, tau)

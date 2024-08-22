@@ -14,3 +14,4 @@ tensorboardX
 opencv-python
 yacs
 detail
+two-sample-binomial
