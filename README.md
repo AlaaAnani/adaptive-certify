@@ -102,7 +102,7 @@ python -m torch.distributed.launch --nproc_per_node=1 tools/train.py --cfg exper
 ```
 ### Download all model weights
 
-Alternatively, download all the needed weights from GDrive [here](https://drive.google.com/drive/folders/1MiciR1oJJaSYb4EDTKn207YYsww7Luo_?usp=sharing).
+Alternatively, download all the needed weights from GDrive [here](https://drive.google.com/drive/folders/1-kBVB5iCEnlMWWXJYlosROOWtdc0QILv?usp=drive_link).
 
 The pretrained_models directory under `HRNet-Semantic-Segmentation/` should look like this:
 ```
@@ -141,7 +141,7 @@ This creates a .pkl file per image: `logs/<dataset_name>/<experiment name>/<imag
 2. To graph out the logged outputs, or produce corresponding latex code for the figures, use the IPYNB Notebooks we have in `experiments/`. They scan the generated data in the logs/ directory created by step 1, and use them to generate the needed visuals.
    
 # Contributors
-[Alaa Anani](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/alaa-anani) (aanani@mpi-inf.mpg.de)
+[Alaa Anani](https://alaaanani.github.io/) (aanani@mpi-inf.mpg.de)
 
 [Tobias Lorenz](https://www.t-lorenz.com/) (tobias.lorenz@cispa.de)
 
